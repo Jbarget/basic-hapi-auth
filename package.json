@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "s": "nodemon ./lib/start.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./lib/start.js",
+    "test": "tape ./test/*",
+    "coverage": "istanbul cover ./node_modules/.bin/tape ./test/*",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=f2239cec8ac03d9f645c2b6d2c358a32130fa1aca6b222cf797afae7f6cac996 codeclimate-test-reporter codeclimate-test-reporter < ./coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -19,8 +21,15 @@
   "homepage": "https://github.com/facstars/finding-nemo#readme",
   "dependencies": {
     "hapi": "^12.1.0",
+    "hapi-auth-basic": "^4.1.0",
     "hoek": "^3.0.4",
     "inert": "^3.2.0",
     "nodemon": "^1.8.1"
+  },
+  "devDependencies": {
+    "codeclimate-test-reporter": "^0.3.1",
+    "istanbul": "^0.4.2",
+    "shot": "^3.0.1",
+    "tape": "^4.5.0"
   }
 }
